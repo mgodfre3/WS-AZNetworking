@@ -3,45 +3,44 @@
     "contentVersion": "1.0.0.0",
     "parameters": {
         "location": {
-            "value": "" // TODO: Fill in parameter value
+            "value": "EastUS" 
         },
         "virtualNetworkName": {
-            "value": "" // TODO: Fill in parameter value
+            "value": "" 
         },
         "resourceGroup": {
-            "value": "" // TODO: Fill in parameter value
+            "value": "WS-Demo" 
         },
         "addressSpaces": {
             "value": [
-                // TODO: Fill in parameter value
-            ]
+                "192.168.0.0/24"]
         },
         "ipv6Enabled": {
-            "value": false // TODO: Fill in parameter value
+            "value": false 
         },
         "subnetCount": {
-            "value": 0 // TODO: Fill in parameter value
+            "value": 3 
         },
         "subnet0_name": {
-            "value": "" // TODO: Fill in parameter value
+            "value": "Firewall" 
         },
         "subnet0_addressRange": {
-            "value": "" // TODO: Fill in parameter value
+            "value": "192.168.0.0/28" 
         },
         "subnet1_name": {
-            "value": "" // TODO: Fill in parameter value
+            "value": "Gateway"
         },
         "subnet1_addressRange": {
-            "value": "" // TODO: Fill in parameter value
+            "value": "192.168.0.16/28" 
         },
         "ddosProtectionPlanEnabled": {
-            "value": false // TODO: Fill in parameter value
+            "value": false 
         },
         "firewallEnabled": {
-            "value": false // TODO: Fill in parameter value
+            "value": false 
         },
         "bastionEnabled": {
-            "value": false // TODO: Fill in parameter value
+            "value": false
         }
     }
 }
