@@ -1,87 +1,46 @@
 {
-    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
-        "location": {
-            "type": "string"
+        
+            "virtualnetworkname":{
+                "type":"string"
+            },
+             "addressPrefixes": {
+            "type": "array",
+            "defaultValue": "192.168.0.0/24"
         },
-        "virtualNetworkName": {
-            "type": "string"
-        },
-        "resourceGroup": {
-            "type": "string"
-        },
-        "addressSpaces": {
+            "subnets": {
             "type": "array"
         },
-        "ipv6Enabled": {
-            "type": "bool"
-        },
-        "subnetCount": {
-            "type": "int"
-        },
-        "subnet0_name": {
-            "type": "string"
-        },
-        "subnet0_addressRange": {
-            "type": "string"
-        },
-        "subnet1_name": {
-            "type": "string"
-        },
-        "subnet1_addressRange": {
-            "type": "string"
-        },
-        "ddosProtectionPlanEnabled": {
-            "type": "bool"
-        },
-        "firewallEnabled": {
-            "type": "bool"
-        },
-        "bastionEnabled": {
-            "type": "bool"
+        "subnetName": {
+            "type": "string",
+            "defaultValue": "default"
         }
+
+
+        
     },
-    "variables": {},
+    "functions": [],
+    "variables": {
+        "vnetId": "[resourceId(resourceGroup().name,'Microsoft.Network/virtualNetworks', parameters('virtualNetworkName'))]",
+        "subnetRef": "[concat(variables('vnetId'), '/subnets/', parameters('subnetName'))]"
+    },
     "resources": [
-        {
+            {
             "name": "[parameters('virtualNetworkName')]",
-            "type": "Microsoft.Network/VirtualNetworks",
-            "apiVersion": "2020-06-01",
-            "location": "[parameters('location')]",
-            "dependsOn": [],
-            "tags": {
-                "Function": "Network",
-                "Demo": "WS"
-            },
+            "type": "Microsoft.Network/virtualNetworks",
+            "apiVersion": "2019-09-01",
+            "location": "[resourceGroup().location]",
             "properties": {
                 "addressSpace": {
-                    "addressPrefixes": [
-                        "192.168.0.0/24"
-                    ]
+                    "addressPrefixes": "[parameters('addressPrefixes')]"
                 },
-                "subnets": [
-                    {
-                        "name": "DMZ",
-                        "properties": {
-                            "addressPrefix": "192.168.0.0/28"
-                        }
-                    },
-                    {
-                        "name": "Gateway",
-                        "properties": {
-                            "addressPrefix": "192.168.0.16/28"
-                        }
-                    },
-                    {
-                        "name": "FrontEnd",
-                        "properties": {
-                            "addressPrefix": "192.168.0.32/28"
-                        }
-                    }
-                ],
-                "enableDdosProtection": "[parameters('ddosProtectionPlanEnabled')]"
+                "subnets": "[parameters('subnets')]"
             }
         }
-    ]
+
+
+    ],
+    "outputs": {}
 }

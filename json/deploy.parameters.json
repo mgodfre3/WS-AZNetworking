@@ -2,45 +2,35 @@
     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
-        "location": {
-            "value": "EastUS" 
+        "virtualnetworkname": {
+            "value": "ws-demo" 
         },
-        "virtualNetworkName": {
-            "value": "" 
-        },
-        "resourceGroup": {
-            "value": "WS-Demo" 
-        },
-        "addressSpaces": {
+
+        "addressPrefixes": {
             "value": [
-                "192.168.0.0/24"]
+                "192.168.0.0/24"
+            ]
         },
-        "ipv6Enabled": {
-            "value": false 
+
+        "subnetName": {
+            "value": "firewall"
+        
         },
-        "subnetCount": {
-            "value": 3 
-        },
-        "subnet0_name": {
-            "value": "Firewall" 
-        },
-        "subnet0_addressRange": {
-            "value": "192.168.0.0/28" 
-        },
-        "subnet1_name": {
-            "value": "Gateway"
-        },
-        "subnet1_addressRange": {
-            "value": "192.168.0.16/28" 
-        },
-        "ddosProtectionPlanEnabled": {
-            "value": false 
-        },
-        "firewallEnabled": {
-            "value": false 
-        },
-        "bastionEnabled": {
-            "value": false
+        "subnets": {
+            "value": [
+                {
+                "name": "Firewall",
+                "properties": {
+                "addressPrefix": "192.168.0.0/28"
+                    }
+                },
+                {
+                    "name": "Gateway",
+                    "properties": {
+                    "addressPrefix": "192.168.0.16/28"
+                        }
+                    }
+            ]
         }
     }
 }
