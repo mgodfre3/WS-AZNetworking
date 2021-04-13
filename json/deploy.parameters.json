@@ -1,0 +1,47 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "location": {
+            "value": "" // TODO: Fill in parameter value
+        },
+        "virtualNetworkName": {
+            "value": "" // TODO: Fill in parameter value
+        },
+        "resourceGroup": {
+            "value": "" // TODO: Fill in parameter value
+        },
+        "addressSpaces": {
+            "value": [
+                // TODO: Fill in parameter value
+            ]
+        },
+        "ipv6Enabled": {
+            "value": false // TODO: Fill in parameter value
+        },
+        "subnetCount": {
+            "value": 0 // TODO: Fill in parameter value
+        },
+        "subnet0_name": {
+            "value": "" // TODO: Fill in parameter value
+        },
+        "subnet0_addressRange": {
+            "value": "" // TODO: Fill in parameter value
+        },
+        "subnet1_name": {
+            "value": "" // TODO: Fill in parameter value
+        },
+        "subnet1_addressRange": {
+            "value": "" // TODO: Fill in parameter value
+        },
+        "ddosProtectionPlanEnabled": {
+            "value": false // TODO: Fill in parameter value
+        },
+        "firewallEnabled": {
+            "value": false // TODO: Fill in parameter value
+        },
+        "bastionEnabled": {
+            "value": false // TODO: Fill in parameter value
+        }
+    }
+}
